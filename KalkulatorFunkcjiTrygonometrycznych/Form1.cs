@@ -53,9 +53,9 @@ namespace KalkulatorFunkcjiTrygonometrycznych
 
                 {
 
-                    bool znakiPesel = char.IsNumber(value, x);
+                    bool znakiFunkcja = char.IsNumber(value, x);
 
-                    if (znakiPesel == false)
+                    if (znakiFunkcja == false)
                     {
                         throw new Exception("Niepoprawne znaki");
 
@@ -67,12 +67,14 @@ namespace KalkulatorFunkcjiTrygonometrycznych
                 }
 
 
+
                 if (string.IsNullOrWhiteSpace(value) == true)
                 {
                     MessageBox.Show("Wpisz wartość kąta");
                     value = "0";
 
                     float value1 = float.Parse(value);
+
                 }
                 else if (radioButton_cosinus.Checked == true || radioButton_cotangens.Checked == true || radioButton_sinus.Checked == true || radioButton_tangens.Checked == true)
                 {
@@ -130,16 +132,10 @@ namespace KalkulatorFunkcjiTrygonometrycznych
                             break;
 
 
-
-
-
                     }
 
 
                 }
-
-
-
 
 
             }
@@ -165,28 +161,52 @@ namespace KalkulatorFunkcjiTrygonometrycznych
 
             float value1 = float.Parse(value);
 
-            double radiany = (Math.PI / 180) * value1;
+            if (value1 > 360)
+            {
 
-            double wynik = Math.Tan(radiany);
+                MessageBox.Show("Kąt nie może być większy niż 360 stopni");
 
-            string wynik_text = wynik.ToString();
+            } else
+            {
+                double radiany = (Math.PI / 180) * value1;
 
-            textBox_result.Text = wynik_text;
+                double wynik = Math.Tan(radiany);
+
+                string wynik_text = wynik.ToString();
+
+                textBox_result.Text = wynik_text;
+                Data.textbox_value_trygonometryczne = wynik_text;
+            }
+
+
         }
+
+
 
         private void Cosinus()
         {
             string value = textBox_value.Text;
 
             float value1 = float.Parse(value);
+            if (value1 > 360)
+            {
 
-            double radiany = (Math.PI / 180) * value1;
+                MessageBox.Show("Kąt nie może być większy niż 360 stopni");
 
-            double wynik = Math.Cos(radiany);
+            } else
+            {
 
-            string wynik_text = wynik.ToString();
+                double radiany = (Math.PI / 180) * value1;
 
-            textBox_result.Text = wynik_text;
+                double wynik = Math.Cos(radiany);
+
+                string wynik_text = wynik.ToString();
+
+                textBox_result.Text = wynik_text;
+                Data.textbox_value_trygonometryczne = wynik_text;
+            }
+
+
         }
 
         private void Sinus()
@@ -195,13 +215,24 @@ namespace KalkulatorFunkcjiTrygonometrycznych
 
             float value1 = float.Parse(value);
 
-            double radiany = (Math.PI / 180) * value1;
+            if (value1 > 360)
+            {
 
-            double wynik = Math.Sin(radiany);
+                MessageBox.Show("Kąt nie może być większy niż 360 stopni");
 
-            string wynik_text = wynik.ToString();
+            } else
+            {
 
-            textBox_result.Text = wynik_text;
+                double radiany = (Math.PI / 180) * value1;
+
+                double wynik = Math.Sin(radiany);
+
+                string wynik_text = wynik.ToString();
+
+                textBox_result.Text = wynik_text;
+                Data.textbox_value_trygonometryczne = wynik_text;
+            }
+
         }
 
         private void Cotangens()
@@ -210,13 +241,24 @@ namespace KalkulatorFunkcjiTrygonometrycznych
 
             float value1 = float.Parse(value);
 
-            double radiany = (Math.PI / 180) * value1;
+            if (value1 > 360)
+            {
 
-            double wynik = 1 / (Math.Sin(radiany));
+                MessageBox.Show("Kąt nie może być większy niż 360 stopni");
 
-            string wynik_text = wynik.ToString();
+            } else
+            {
 
-            textBox_result.Text = wynik_text;
+                double radiany = (Math.PI / 180) * value1;
+
+                double wynik = 1 / (Math.Tan(radiany));
+
+                string wynik_text = wynik.ToString();
+
+                textBox_result.Text = wynik_text;
+                Data.textbox_value_trygonometryczne = wynik_text;
+
+            }
 
         }
 
@@ -269,53 +311,57 @@ namespace KalkulatorFunkcjiTrygonometrycznych
 
                 string walidacja = X + B + A;
 
-                for (int i = 0; i < walidacja.Length; i++)
 
-                {
+                  for (int i = 0; i < walidacja.Length; i++)
 
-                    bool funkcja_znakil = char.IsNumber(walidacja, i);
+                    {
 
+                        bool funkcja_znakil = char.IsNumber(walidacja, i);
+
+                      
                     if (funkcja_znakil == false)
+                    
                     {
 
-                        throw new Exception("Niepoprawne znaki ");
+                                throw new Exception("Niepoprawne znaki");
 
 
 
 
+                     }
+         
+
+
+                        if (string.IsNullOrWhiteSpace(B_check) == true)
+                        {
+
+                            B = " ";
+                            wynik = (A1 * X1);
+                        }
+                        else
+                        {
+
+                            B1 = float.Parse(B);
+                            wynik = (A1 * X1) + B1;
+
+                        }
+
+
+                        string wynik_liniowa = wynik.ToString();
+
+
+
+
+
+
+                        textBox_liniowa_value.Text = wynik_liniowa;
+                    Data.textbox_result_liniowa = wynik_liniowa.ToString();
                     }
 
-
-
-                    if (string.IsNullOrWhiteSpace(B_check) == true)
-                    {
-
-                        B = " ";
-                        wynik = (A1 * X1);
-                    }
-                    else
-                    {
-
-                        B1 = float.Parse(B);
-                        wynik = (A1 * X1) + B1;
-
-                    }
-
-
-                    string wynik_liniowa = wynik.ToString();
-
-
-
-
-
-
-                    textBox_liniowa_value.Text = wynik_liniowa;
-
-                }
-
+                
             }
 
-            catch 
+            catch
             {
 
                 MessageBox.Show("Niepoprawne znaki");
@@ -324,7 +370,7 @@ namespace KalkulatorFunkcjiTrygonometrycznych
 
         }
 
-
+    }
 
 
 
@@ -338,4 +384,3 @@ namespace KalkulatorFunkcjiTrygonometrycznych
 
     }
 
-}

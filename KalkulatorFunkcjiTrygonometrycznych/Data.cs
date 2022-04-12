@@ -8,10 +8,10 @@ namespace KalkulatorFunkcjiTrygonometrycznych
 {
     internal class Data
     {
-        public static string textbox_value;
+        public static string textbox_value_trygonometryczne;
 
 
-        public static string textbox_result;
+        public static string textbox_result_liniowa;
 
       
     }
