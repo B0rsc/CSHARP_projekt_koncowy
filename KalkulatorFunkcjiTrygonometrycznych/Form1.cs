@@ -150,11 +150,6 @@ namespace KalkulatorFunkcjiTrygonometrycznych
         }
 
 
-
-
-
-
-
         private void Tangens()
         {
             string value = textBox_value.Text;
@@ -180,7 +175,6 @@ namespace KalkulatorFunkcjiTrygonometrycznych
 
 
         }
-
 
 
         private void Cosinus()
@@ -371,13 +365,6 @@ namespace KalkulatorFunkcjiTrygonometrycznych
         }
 
     }
-
-
-
-
-
-
-
 
 
 
