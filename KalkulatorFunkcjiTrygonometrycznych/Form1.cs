@@ -351,6 +351,7 @@ namespace KalkulatorFunkcjiTrygonometrycznych
 
                 MessageBox.Show("Niepoprawne znaki");
 
+
             }
 
         }
