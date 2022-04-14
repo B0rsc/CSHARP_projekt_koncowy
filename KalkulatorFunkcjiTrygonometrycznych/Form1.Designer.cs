@@ -204,7 +204,7 @@
             // 
             this.textBox_liniowa_value.Location = new System.Drawing.Point(628, 305);
             this.textBox_liniowa_value.Name = "textBox_liniowa_value";
-            this.textBox_liniowa_value.Size = new System.Drawing.Size(83, 22);
+            this.textBox_liniowa_value.Size = new System.Drawing.Size(119, 22);
             this.textBox_liniowa_value.TabIndex = 28;
             // 
             // label7
@@ -243,7 +243,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Kalkulator ";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

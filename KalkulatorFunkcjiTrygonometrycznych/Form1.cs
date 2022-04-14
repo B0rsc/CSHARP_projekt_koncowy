@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Globalization;
 namespace KalkulatorFunkcjiTrygonometrycznych
 {
     public partial class Form1 : Form
@@ -24,13 +24,6 @@ namespace KalkulatorFunkcjiTrygonometrycznych
         {
 
             Validation();
-
-        }
-
-
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
 
         }
 
@@ -291,39 +284,46 @@ namespace KalkulatorFunkcjiTrygonometrycznych
             try
             {
                 string A = textBox_A.Text;
-                float A1 = float.Parse(A);
+                float A1 = float.Parse(A, CultureInfo.InvariantCulture.NumberFormat);
 
                 string B = textBox_B.Text;
                 float B1;
 
                 string X = textBox_X.Text;
-                float X1 = float.Parse(X);
-
+                float X1 = float.Parse(X, CultureInfo.InvariantCulture.NumberFormat);
+                
                 double wynik;
 
                 string B_check = textBox_B.Text;
 
-                string walidacja = X + B + A;
+                string walidacja = A + B + X;
 
 
-                  for (int i = 0; i < walidacja.Length; i++)
+                for (int i = 0; i < walidacja.Length; i++)
+
+                {
+
+                    bool funkcja_znakil = char.IsNumber(walidacja, i);
+                    bool funkcja_comma = walidacja.Contains(",");
+                    bool funkcja_dot = walidacja.Contains(".");
+
+                    if (funkcja_znakil == false && funkcja_comma == false)
 
                     {
+                        if (funkcja_dot == false) {
 
-                        bool funkcja_znakil = char.IsNumber(walidacja, i);
 
-                      
-                    if (funkcja_znakil == false)
-                    
+                            throw new Exception("Niepoprawne znaki");
+
+                        }
+
+
+                    }
+                    else
                     {
 
-                                throw new Exception("Niepoprawne znaki");
 
 
-
-
-                     }
-         
 
 
                         if (string.IsNullOrWhiteSpace(B_check) == true)
@@ -349,12 +349,12 @@ namespace KalkulatorFunkcjiTrygonometrycznych
 
 
                         textBox_liniowa_value.Text = wynik_liniowa;
-                    Data.textbox_result_liniowa = wynik_liniowa.ToString();
+                        Data.textbox_result_liniowa = wynik_liniowa.ToString();
                     }
 
-                
-            }
 
+                }
+            }
             catch
             {
 
