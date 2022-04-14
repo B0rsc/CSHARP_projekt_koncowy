@@ -322,10 +322,6 @@ namespace KalkulatorFunkcjiTrygonometrycznych
                     else
                     {
 
-
-
-
-
                         if (string.IsNullOrWhiteSpace(B_check) == true)
                         {
 
@@ -342,11 +338,6 @@ namespace KalkulatorFunkcjiTrygonometrycznych
 
 
                         string wynik_liniowa = wynik.ToString();
-
-
-
-
-
 
                         textBox_liniowa_value.Text = wynik_liniowa;
                         Data.textbox_result_liniowa = wynik_liniowa.ToString();
@@ -365,9 +356,5 @@ namespace KalkulatorFunkcjiTrygonometrycznych
         }
 
     }
-
-
-
-
-    }
+ }
 
