@@ -322,10 +322,6 @@ namespace KalkulatorFunkcjiTrygonometrycznych
                     else
                     {
 
-
-
-
-
                         if (string.IsNullOrWhiteSpace(B_check) == true)
                         {
 
